@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <title>Gage's portfolio</title>
     <style>
       @font-face {
         font-family: "artDB";
-        src: url(artDB.ttf);
+        src: url(fonts/artDB.ttf);
       }
       @font-face {
         font-family: "artN";
-        src: url(artN.ttf);
+        src: url(fonts/artN.ttf);
       }
 
       body {
@@ -201,7 +201,7 @@
         transform: translate(-50%, -50%);
         width: 95%;
         height: 90%;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(10px);
         border: 2px solid rgba(255, 255, 255, 0.5);
         border-radius: 15px;
@@ -354,14 +354,15 @@
 
       .about-me-text {
         overflow-y: auto; /* Scrollable if content overflows */
-
-        padding-right: 10px;
-        width: 60vw;
+        overflow-x: hidden;
+        height: 70vh;
+        padding-right: 50px;
+        width: 56vw;
       }
 
       .about-me-photo {
-        width: 350px;
-        height: 500px;
+        width: 30vw;
+        height: 76vh;
         border-radius: 20px;
         object-fit: cover;
         flex-shrink: 0; /* Prevent the photo from shrinking */
@@ -372,13 +373,15 @@
       }
 
       .about-me-text h2 {
-        margin: 0 0 10px 0;
+        margin: 0 0 0px 0;
       }
 
       .about-me-text p {
         margin: 0;
-        line-height: 1.5;
-        font-size: 1rem;
+        line-height: 1.25;
+        font-size: 1.3rem;
+
+        color: rgb(201, 201, 201);
       }
 
       /* Scrollbar styling (optional) */
@@ -387,12 +390,12 @@
       }
 
       .about-me-text::-webkit-scrollbar-thumb {
-        background-color: rgba(8, 203, 208, 0.8);
+        background-color: rgba(8, 203, 208, 0);
         border-radius: 3px;
       }
 
       .about-me-text::-webkit-scrollbar-thumb:hover {
-        background-color: rgba(8, 203, 208, 1);
+        background-color: rgba(8, 203, 208, 0);
       }
 
       @media (max-width: 768px) {
@@ -431,6 +434,74 @@
           opacity: 0;
         }
       }
+
+      #mobile-splash {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #mobile-splash .splash-content {
+        text-align: center;
+        max-width: 90%;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+        font-family: artN;
+      }
+
+      #mobile-splash button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 1px solid white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-family: artN;
+      }
+
+      #mobile-splash button:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+
+      /* Show the splash on small screens */
+      @media (max-width: 768px) {
+        #mobile-splash {
+          display: flex;
+        }
+      }
+
+      .resume-link {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-family: "artN";
+        font-size: 1rem;
+        color: white;
+        text-decoration: none;
+        background-color: rgba(8, 203, 208, 0.6);
+        border: 2px solid rgba(8, 203, 208, 1);
+        border-radius: 5px;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .resume-link:hover {
+        background-color: rgba(8, 203, 208, 1);
+        color: black;
+      }
     </style>
   </head>
   <body>
@@ -462,6 +533,16 @@
       <div class="planet" onclick="showInfo('SKILLS')">
         <img src="planet.png" alt="Planet 5" />
         <span>Skills</span>
+      </div>
+    </div>
+    <div id="mobile-splash">
+      <div class="splash-content">
+        <h2>Optimized for Desktop</h2>
+        <p>
+          This page is best viewed on a desktop screen. For the full experience,
+          please switch to a larger screen size.
+        </p>
+        <button onclick="closeSplash()">Close</button>
       </div>
     </div>
 
@@ -549,31 +630,68 @@
       const infoContentData = {
         "ABOUT ME": {
           title: "About Me",
-          content:
-            "Hi! I'm Gage. I'm a computer science student with a passion for interactive design, filmmaking, and exploring innovative ideas. Hi! I'm Gage. I'm a computer science student with a passion for interactive design, filmmaking, and exploring innovative ideas. Hi! I'm Gage. I'm a computer science student with a passion for interactive design, filmmaking, and exploring innovative ideas. Hi! I'm Gage. I'm a computer science student with a passion for interactive design, filmmaking, and exploring innovative ideas. Hi! I'm Gage. I'm a computer science student with a passion for interactive design, filmmaking, and exploring innovative ideas. Hi! I'm Gage. I'm a computer science student with a passion for interactive design, filmmaking, and exploring innovative ideas.",
-          image: "mymug2.jpg",
+          content: `
+          <br>
+      <p>Hi! I'm Gage. I'm a freshly graduated developer with a passion for interactive design, web development, 
+        and exploring innovative ideas.
+      </p>
+      <br>
+      <p>I was born in the rural western suburbs of Chicago. While spending the rest of my life among corn and cattle did sound appealing from time to time, a programming class I took in high school convinced me that I wanted to take a crack at doing this for a living. That passion for problem solving is what drove me to move to the city and pursue a Computer Science degree. After four years of struggle, learning, perseverance, and enough caffeine to kill a small horse, I've made it out the other side with a degree in hand and a world in need of creative thinkers.</p>
+      <br>
+      <p>In my free time, I enjoy outdoor activities such as skiing, footall, and lacrosse. I am a dog lover, having three at the time of writing this. So even if you aren't interested in hiring me, feel free to send me pictures of your dog in any of the various contact methods.
+    `,
+          image: "mymug4.PNG",
         },
         PROJECTS: {
           title: "Projects",
-          content:
-            "Check out some of my exciting projects, including a city exploration app, data science in NFL predictions, and a space-themed portfolio.",
+          content: `
+          <br>
+      <p>
+      ** hmmm, looks like you've found a section that I haven't quite finished yet -- shhhhhh.. I won't tell anyone if you don't
+      </p>
+      
+    `,
         },
         SKILLS: {
           title: "Skills",
-          content:
-            "I'm proficient in JavaScript, Python, and web development. I also have experience with film editing, creative storytelling, and data visualization.",
+          content: `
+          <br>
+      <p>
+      ** hmmm, looks like you've found a section that I haven't quite finished yet -- shhhhhh.. I won't tell anyone if you don't
+      </p>
+      
+    `,
+          image: "dog.HEIC",
         },
         RESUME: {
           title: "Resume",
-          content:
-            "View my full resume to see my education, work experience, and technical skills in detail. [Insert link or download option here]",
+          content: `
+          <br>
+      <p>
+        View or download my full resume below:
+      </p>
+      <br>
+      <a href="resume.pdf" target="_blank" class="resume-link">View Resume</a>
+      <a href="resume.pdf" download="Gage_Resume" class="resume-link">Download Resume</a>
+    `,
+          image: "resume-GageBergmann.jpg", // Optional image for visual interest
         },
         CONNECT: {
           title: "Connect",
-          content:
-            "Feel free to reach out! You can contact me via LinkedIn, email, or check out my GitHub for more projects.",
+          content: `
+          <br>
+      <p>
+      ** hmmm, looks like you've found a section that I haven't quite finished yet -- shhhhhh.. I won't tell anyone if you don't
+      </p>
+      
+    `,
         },
       };
+
+      function closeSplash() {
+        const splash = document.getElementById("mobile-splash");
+        splash.style.display = "none";
+      }
     </script>
   </body>
 </html>
