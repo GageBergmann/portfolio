@@ -7,11 +7,11 @@
     <style>
       @font-face {
         font-family: "artDB";
-        src: url(artDB.ttf);
+        src: url(fonts/artDB.ttf);
       }
       @font-face {
         font-family: "artN";
-        src: url(artN.ttf);
+        src: url(fonts/artN.ttf);
       }
 
       body {
@@ -66,7 +66,7 @@
 
       .planets-container {
         display: flex;
-        justify-content: center; /* Centers content horizontally */
+        justify-content: center;
         align-items: center;
         margin: 20px;
         margin-top: 26vh;
@@ -94,16 +94,16 @@
       } */
       .planet:nth-child(1) {
         margin-right: 10px;
-        margin-top: -200px; /* Extra space below the second planet */
+        margin-top: -200px;
       }
       .planet:nth-child(2) {
-        margin-top: 0px; /* Extra space below the second planet */
+        margin-top: 0px;
       }
       .planet:nth-child(4) {
-        margin-top: 0px; /* Extra space below the second planet */
+        margin-top: 0px;
       }
       .planet:nth-child(5) {
-        margin-top: -200px; /* Extra space below the second planet */
+        margin-top: -200px;
         margin-left: 10px;
       }
 
@@ -117,7 +117,6 @@
       }
 
       .planet:hover {
-        /*box-shadow: 0 0 1px 1px rgba(8, 203, 208, 1);*/
         border-style: solid;
         border-color: aqua;
 
@@ -176,67 +175,49 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 95%;
-        height: 90%;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(10px);
-
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        border-radius: 15px;
-        display: none; /* Initially hidden */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-        z-index: 100;
-        opacity: 0; /* Start fully transparent */
-        transition: opacity 0.25s ease, transform 0.25s ease;
-      }
-
-      .info-modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 95%;
-        height: 90%;
+        width: 100vw;
+        height: 100vh;
         background: rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(10px);
         border: 2px solid rgba(255, 255, 255, 0.5);
-        border-radius: 15px;
+        border-style: none;
+        border-radius: 0px;
         display: none;
         flex-direction: column;
         color: white;
         text-align: left;
         z-index: 100;
-        opacity: 0; /* Start fully transparent */
+        opacity: 0;
         transition: opacity 0.25s ease, transform 0.25s ease;
+        border-radius: 0px;
       }
 
       .info-modal.active {
-        display: flex; /* Show the modal */
-        opacity: 1; /* Fully visible */
-        transform: translate(-50%, -50%) scale(1); /* Normal size */
+        display: flex;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
       }
 
       .info-modal h2 {
         font-family: artDB;
-        font-size: 2rem;
-        margin-bottom: 20px;
+        font-size: 2.4rem;
+        margin-bottom: 0px;
+      }
+
+      h2 {
+        margin-bottom: 0px;
       }
 
       .info-modal p {
         font-family: artN;
         font-size: 1.2rem;
         margin-bottom: 20px;
-        max-width: 600px;
       }
 
       .info-modal button {
-        position: absolute; /* Position the button within the modal */
-        top: 10px; /* Adjust distance from the top */
-        left: 10px; /* Adjust distance from the left */
+        position: absolute;
+        top: 10px;
+        left: 10px;
         font-family: artN;
         font-size: 0.8rem;
         padding: 10px 20px;
@@ -255,7 +236,7 @@
         display: inline-block;
         background-color: rgba(8, 203, 208, 0);
         color: rgba(255, 255, 255, 0.6);
-        font-family: artN; /* Optional: Apply your desired font */
+        font-family: artN;
         font-size: 0.7rem;
         padding: 5px 10px;
         border-radius: 10px;
@@ -343,48 +324,151 @@
 
       .about-me-content {
         display: flex;
-        flex: 1; /* Take up all available space */
+        flex: 1;
         gap: 20px;
         padding: 20px;
         overflow: hidden;
         align-items: flex-start;
-        width: 90vw;
+        width: 100%;
         margin-top: 50px;
       }
 
       .about-me-text {
-        overflow-y: auto; /* Scrollable if content overflows */
+        overflow-y: auto;
         overflow-x: hidden;
-        height: 70vh;
-        padding-right: 50px;
-        width: 56vw;
+        height: 90%;
+        padding-right: 0px;
+        width: 60%;
+        background-color: rgba(29, 29, 29, 0.6);
+
+        border-radius: 20px;
+        padding-inline: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      .projects-content {
+        display: flex;
+        flex: 1;
+        gap: 20px;
+        padding: 0px;
+        padding-top: 20px;
+        overflow: hidden;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 50px;
+      }
+
+      .projects-text {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 90%;
+        padding-right: 0px;
+        width: 100vw;
+        background-color: rgba(29, 29, 29, 0.6);
+        padding-left: -10px;
+        border-radius: 0px;
+        padding-inline: 30px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .projects-list {
+        width: 30%;
+        max-width: 250px;
+        padding: 20px;
+        background-color: rgba(29, 29, 29, 0.6);
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        height: 90%;
+      }
+
+      .projects-list ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .projects-list li {
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease;
+        font-family: ArtN;
+        border-radius: 10px;
+      }
+
+      .projects-list li:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+      }
+
+      .project-details {
+        flex: 1;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        overflow-y: auto;
+        height: 90%;
+      }
+
+      #proj-description {
+        color: rgb(177, 177, 177);
       }
 
       .about-me-photo {
-        width: 30vw;
-        height: 76vh;
+        width: 30%;
+        height: 90%;
         border-radius: 20px;
+
         object-fit: cover;
-        flex-shrink: 0; /* Prevent the photo from shrinking */
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        position: absolute;
-        right: 50px;
-        top: 50px;
+        flex-shrink: 0;
+        background-color: rgba(29, 29, 29, 0.6);
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       }
 
       .about-me-text h2 {
         margin: 0 0 0px 0;
+        /*background-color: red;*/
+        margin-bottom: 10px;
       }
 
-      .about-me-text p {
-        margin: 0;
-        line-height: 1.25;
-        font-size: 1.3rem;
-
-        color: rgb(201, 201, 201);
+      #subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 7px;
+        margin-bottom: 20px;
+        margin-top: 30px;
       }
 
-      /* Scrollbar styling (optional) */
+      #body {
+        font-family: artN;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        padding-top: 0px;
+        color: rgb(177, 177, 177);
+      }
+      .dog-photos {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+
+      .dog-photo {
+        text-align: center;
+      }
+
+      .dog-photo img {
+        width: 150px;
+        height: 150px;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+
+      .dog-photo p {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
       .about-me-text::-webkit-scrollbar {
         width: 6px;
       }
@@ -400,11 +484,18 @@
 
       @media (max-width: 768px) {
         .about-me-content {
-          flex-direction: column; /* Stack photo and text on smaller screens */
+          flex-direction: column;
+          align-items: center;
+          padding: 0;
+          margin: 0;
         }
-
+        .about-me-text {
+          height: 70vh;
+          width: 80vw;
+        }
         .about-me-photo {
           margin-bottom: 10px;
+          height: 20%;
         }
       }
 
@@ -477,7 +568,6 @@
         background-color: rgba(255, 255, 255, 0.4);
       }
 
-      /* Show the splash on small screens */
       @media (max-width: 768px) {
         #mobile-splash {
           display: flex;
@@ -502,6 +592,33 @@
         background-color: rgba(8, 203, 208, 1);
         color: black;
       }
+
+      .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        max-height: 70vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+
+      .project-item {
+        font-family: artN;
+        font-size: 1.5rem;
+        color: white;
+        padding: 10px;
+        background: transparent;
+        border: none;
+        border-radius: 8px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .project-item:hover {
+        transform: translateY(-5px);
+
+        background: rgba(8, 203, 208, 0.5);
+      }
     </style>
   </head>
   <body>
@@ -514,11 +631,11 @@
       <div class="third-line">click anywhere</div>
     </div>
     <div class="planets-container">
-      <div class="planet" onclick="showInfo('ABOUT ME')">
+      <div class="planet" onclick="showModal('modal-about-me')">
         <img src="planet.png" alt="Planet 1" />
         <span>About Me</span>
       </div>
-      <div class="planet" onclick="showInfo('PROJECTS')">
+      <div class="planet" onclick="showModal('modal-projects')">
         <img src="planet.png" alt="Planet 2" />
         <span>Projects</span>
       </div>
@@ -535,6 +652,86 @@
         <span>Skills</span>
       </div>
     </div>
+    <div class="info-modal" id="modal-about-me">
+      <button onclick="closeModal('modal-about-me')">
+        Press <span class="esc-box">ESC</span> to exit
+      </button>
+      <div class="about-me-content">
+        <div class="about-me-text">
+          <p id="subtitle">ABOUT ME</p>
+          <h2>Hi there! My name is Gage. I design and develop cool things.</h2>
+
+          <p id="body">
+            I'm a newly graduated developer with a passion for intuitive UI
+            design, web development, and collaborative enviornments.
+          </p>
+          <p id="body">
+            I was born in the rural western suburbs of Chicago. While spending
+            my adolesence among corn and cattle did have its charms, a
+            programming class I took early in high school sparked an interest in
+            me that became a passion. That passion for problem solving is what
+            drove me to move to the city and pursue a Computer Science degree.
+          </p>
+          <p id="body">
+            After four years of failure, growth, and enough caffeine to kill a
+            small horse, I've made it out the other side with a degree in hand
+            and a world in need of creative thinkers.
+          </p>
+          <p id="body">
+            Beyond my professional life, I enjoy skiing, mint chocolate chip ice
+            cream, and Panda Express (some might even suggest I eat it a little
+            too much), and have three dogs (pictured below)
+          </p>
+          <div class="dog-photos">
+            <div class="dog-photo">
+              <img src="doobie.JPG" alt="My dog Doobie" />
+              <p>Doobie</p>
+            </div>
+            <div class="dog-photo">
+              <img src="piper.jpg" alt="My dog Piper" />
+              <p>Piper</p>
+            </div>
+            <div class="dog-photo">
+              <img src="tilly.jpg" alt="My dog Tilly" />
+              <p>Tilly</p>
+            </div>
+          </div>
+          <p id="body">And I love them dearly.</p>
+        </div>
+        <img class="about-me-photo" src="cropped.PNG" alt="my face!" />
+      </div>
+    </div>
+    <div class="info-modal" id="modal-projects">
+      <button onclick="closeModal('modal-projects')">
+        Press <span class="esc-box">ESC</span> to exit
+      </button>
+      <div class="projects-content">
+        <div class="projects-list">
+          <p id="subtitle">PROJECTS</p>
+
+          <ul>
+            <li onclick="showProject('unlocking-chicago')">
+              Unlocking Chicago
+            </li>
+            <li onclick="showProject('nfl-data-analysis')">
+              NFL Data Analysis
+            </li>
+            <li onclick="showProject('this-website')">This Website!</li>
+            <li onclick="showProject('chicago-crime-ml')">
+              Chicago Crime Data ML Analysis
+            </li>
+            <li onclick="showProject('bigger-mouthed-billy')">
+              Bigger-Mouthed Billy Bass
+            </li>
+          </ul>
+        </div>
+        <div class="project-details">
+          <div id="project-content">
+            <p>Select a project to view details.</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="mobile-splash">
       <div class="splash-content">
         <h2>Optimized for Desktop</h2>
@@ -543,18 +740,6 @@
           please switch to a larger screen size.
         </p>
         <button onclick="closeSplash()">Close</button>
-      </div>
-    </div>
-
-    <div class="info-modal" id="info-modal">
-      <button onclick="closeInfo()">
-        Press <span class="esc-box">ESC</span> to return to home
-      </button>
-      <div class="about-me-content">
-        <div class="about-me-text">
-          <h2 id="info-title"></h2>
-          <p id="info-content"></p>
-        </div>
       </div>
     </div>
 
@@ -594,63 +779,100 @@
         }
       });
 
-      function showInfo(contentKey) {
-        const section = infoContentData[contentKey];
-        if (section) {
-          infoTitle.textContent = section.title;
-          infoContent.innerHTML = `
-      <div class="about-me-text">${section.content}</div>
-      ${
-        section.image
-          ? `<img src="${section.image}" alt="${section.title}" class="about-me-photo" />`
-          : ""
-      }
-    `;
-          infoModal.style.display = "flex"; // Make the modal visible
-          requestAnimationFrame(() => {
-            infoModal.classList.add("active"); // Trigger fade-in
-          });
-        }
-      }
+      function showProject(projectId) {
+        const projectContent = {
+          "unlocking-chicago": `
+      <h2>Unlocking Chicago</h2>
+      <p id="proj-description">An interactive map experience for newcomers to Chicago, revealing hidden landmarks as users explore the city.</p>
+      <img src="unlocking-chicago.png" alt="Unlocking Chicago Screenshot" width="100%">
+    `,
+          "nfl-data-analysis": `
+      <h2>NFL Data Analysis</h2>
+      <p id="proj-description">A data-driven approach to analyzing football betting trends using statistical models and Python.</p>
+      <img src="nfl-data.jpg" alt="NFL Data Analysis" width="100%">
+    `,
+          "this-website": `
+      <h2>This Website!</h2>
+      <p id="proj-description">The personal portfolio you're currently browsing, built with HTML, CSS, and JavaScript.</p>
+      <img src="website-screenshot.jpg" alt="This Website Screenshot" width="100%">
+    `,
+          "chicago-crime-ml": `
+      <h2>Chicago Crime Data ML Analysis</h2>
+      <p id="proj-description">Machine learning project analyzing crime data in Chicago to predict crime trends and hotspots.</p>
+      <img src="chicago-crime.jpg" alt="Chicago Crime ML Analysis" width="100%">
+    `,
+          "bigger-mouthed-billy": `
+      <h2>Bigger-Mouthed Billy Bass</h2>
+      <p id="proj-description">An upgraded, voice-controlled talking fish that provides witty responses and interacts dynamically.</p>
+      <img src="billy-bass.jpg" alt="Bigger-Mouthed Billy Bass" width="100%">
+    `,
+        };
 
-      function closeInfo() {
-        infoModal.classList.remove("active"); // Trigger fade-out
-        setTimeout(() => {
-          infoModal.style.display = "none"; // Hide modal after fade-out
-        }, 500); // Match transition duration
+        document.getElementById("project-content").innerHTML =
+          projectContent[projectId] || "<p>Project not found.</p>";
       }
 
       // Close the modal when Esc key is pressed
+      //remove
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && infoModal.classList.contains("active")) {
           closeInfo();
         }
       });
 
+      function showModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.style.display = "flex";
+          requestAnimationFrame(() => {
+            modal.classList.add("active");
+          });
+        }
+      }
+
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.remove("active");
+          setTimeout(() => {
+            modal.style.display = "none";
+          }, 500);
+        }
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          const activeModals = document.querySelectorAll(".info-modal.active");
+          activeModals.forEach((modal) => closeModal(modal.id));
+        }
+      });
+
+      //remove?
       const infoContentData = {
         "ABOUT ME": {
           title: "About Me",
           content: `
           <br>
-      <p>Hi! I'm Gage. I'm a freshly graduated developer with a passion for interactive design, web development, 
-        and exploring innovative ideas.
+      <p>Hi! I'm Gage. I'm a freshly graduated developer with a passion for intuitive UI design, web development, 
+        and exploring new ideas.
       </p>
       <br>
-      <p>I was born in the rural western suburbs of Chicago. While spending the rest of my life among corn and cattle did sound appealing from time to time, a programming class I took in high school convinced me that I wanted to take a crack at doing this for a living. That passion for problem solving is what drove me to move to the city and pursue a Computer Science degree. After four years of struggle, learning, perseverance, and enough caffeine to kill a small horse, I've made it out the other side with a degree in hand and a world in need of creative thinkers.</p>
+      <p>I was born in the rural western suburbs of Chicago. While spending my adolesence among corn and cattle did have its charms, a programming class I took early in high school sparked an interest in me that became a passion. That passion for problem solving is what drove me to move to the city and pursue a Computer Science degree. After four years of failure, growth, and enough caffeine to kill a small horse, I've made it out the other side with a degree in hand and a world in need of creative thinkers.</p>
       <br>
       <p>In my free time, I enjoy outdoor activities such as skiing, footall, and lacrosse. I am a dog lover, having three at the time of writing this. So even if you aren't interested in hiring me, feel free to send me pictures of your dog in any of the various contact methods.
     `,
-          image: "mymug4.PNG",
+          image: "headback.JPEG",
         },
         PROJECTS: {
           title: "Projects",
-          content: `
-          <br>
-      <p>
-      ** hmmm, looks like you've found a section that I haven't quite finished yet -- shhhhhh.. I won't tell anyone if you don't
-      </p>
-      
-    `,
+          content: "",
+          projects: [
+            "Interactive Map App",
+            "NFL Data Analysis",
+            "Short Film Reflection",
+            "Portfolio Website",
+            "Adventure App Prototype",
+          ],
         },
         SKILLS: {
           title: "Skills",
@@ -674,7 +896,7 @@
       <a href="resume.pdf" target="_blank" class="resume-link">View Resume</a>
       <a href="resume.pdf" download="Gage_Resume" class="resume-link">Download Resume</a>
     `,
-          image: "resume-GageBergmann.jpg", // Optional image for visual interest
+          image: "resume-GageBergmann.jpg",
         },
         CONNECT: {
           title: "Connect",
