@@ -482,6 +482,53 @@
         background-color: rgba(8, 203, 208, 0);
       }
 
+      .connect-content {
+        display: flex;
+        flex: 1;
+        gap: 10px;
+        padding: 20px;
+        overflow: hidden;
+        align-items: center;
+        width: 100%;
+        margin-top: 50px;
+        justify-content: center;
+      }
+
+      .connect-text {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: auto;
+        width: 60%;
+        background-color: rgba(29, 29, 29, 0.6);
+        border-radius: 20px;
+        padding: 50px;
+        padding-top: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        text-align: center;
+      }
+
+      .connect-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        font-family: ArtDB;
+      }
+
+      .connect-btn {
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: rgba(8, 203, 208, 1);
+        color: white;
+        font-weight: bold;
+        transition: background 0.2s ease-in-out;
+      }
+
+      .connect-btn:hover {
+        background-color: rgb(107, 200, 203);
+      }
+
       @media (max-width: 768px) {
         .about-me-content {
           flex-direction: column;
@@ -643,7 +690,7 @@
         <img src="planet.png" alt="Planet 3" />
         <span>Connect</span>
       </div>
-      <div class="planet" onclick="showModal('RESUME')">
+      <div class="planet" onclick="openResume()">
         <img src="planet.png" alt="Planet 4" />
         <span>Resume</span>
       </div>
@@ -736,7 +783,35 @@
       <button onclick="closeModal('modal-connect')">
         Press <span class="esc-box">ESC</span> to exit
       </button>
+      <div class="connect-content">
+        <div class="connect-text">
+          <p id="subtitle">CONNECT</p>
+          <h2>Let's get in touch!</h2>
+          <p id="body">
+            Feel free to reach out via email or connect with me on LinkedIn and
+            GitHub.
+          </p>
+          <div class="connect-buttons">
+            <a href="mailto:gagebergmann@gmail.com" class="connect-btn"
+              >Email Me</a
+            >
+            <a
+              href="http://www.linkedin.com/in/gage-bergmann-5b421b24a"
+              target="_blank"
+              class="connect-btn"
+              >LinkedIn</a
+            >
+            <a
+              href="https://github.com/GageBergmann"
+              target="_blank"
+              class="connect-btn"
+              >GitHub</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
+
     <div id="mobile-splash">
       <div class="splash-content">
         <h2>Optimized for Desktop</h2>
@@ -852,6 +927,10 @@
             modal.style.display = "none";
           }, 500);
         }
+      }
+
+      function openResume() {
+        window.open("resume.pdf", "_blank");
       }
 
       document.addEventListener("keydown", (event) => {
