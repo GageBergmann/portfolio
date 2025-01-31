@@ -639,15 +639,15 @@
         <img src="planet.png" alt="Planet 2" />
         <span>Projects</span>
       </div>
-      <div class="planet" onclick="showInfo('CONNECT')">
+      <div class="planet" onclick="showModal('modal-connect')">
         <img src="planet.png" alt="Planet 3" />
         <span>Connect</span>
       </div>
-      <div class="planet" onclick="showInfo('RESUME')">
+      <div class="planet" onclick="showModal('RESUME')">
         <img src="planet.png" alt="Planet 4" />
         <span>Resume</span>
       </div>
-      <div class="planet" onclick="showInfo('SKILLS')">
+      <div class="planet" onclick="showModal('SKILLS')">
         <img src="planet.png" alt="Planet 5" />
         <span>Skills</span>
       </div>
@@ -732,6 +732,11 @@
         </div>
       </div>
     </div>
+    <div class="info-modal" id="modal-connect">
+      <button onclick="closeModal('modal-connect')">
+        Press <span class="esc-box">ESC</span> to exit
+      </button>
+    </div>
     <div id="mobile-splash">
       <div class="splash-content">
         <h2>Optimized for Desktop</h2>
@@ -793,12 +798,17 @@
           "nfl-data-analysis": `
       <h2>NFL Data Analysis</h2>
       <p id="proj-description">A data-driven approach to analyzing football betting trends using statistical models and Python.</p>
-      <img src="nfl-data.jpg" alt="NFL Data Analysis" width="100%">
+      <img src="scatter.png" alt="NFL Data Analysis" width="80%">
+      <p id="proj-description">For this project, myself and a small team leveraged large, publicly sourced NFL datasets to extrapolate trends in quarterback performance. Specifically, we used advanced metrics such as EPA and Passer Rating, as well as draft data to predict the liklihood of career success. </p>
     `,
           "this-website": `
-      <h2>This Website!</h2>
+      <h2>This Website</h2>
       <p id="proj-description">The personal portfolio you're currently browsing, built with HTML, CSS, and JavaScript.</p>
-      <img src="website-screenshot.jpg" alt="This Website Screenshot" width="100%">
+      <p id="proj-description">Building a portfolio website that I was truly satisfied with was a journey that spanned several years. What started as a low-stakes project to explore web development gradually evolved into a passion for creating not just a functional and responsive site, but one that feels sleek and intuitive. The great thing about crafting something meant to showcase your skills is the constant motivation to refine and improve it. And as a junior developer, well… let’s just say there’s always plenty to improve *ha-ha*.</p>
+      <p id="proj-description">Below, you’ll find screen grabs of past website mock-ups—projects I put significant effort into but ultimately set aside in pursuit of something better.</p>
+      <img src="port1.png" alt="This Website Screenshot" width="100%">
+      <img src="port2.png" alt="This Website Screenshot" width="100%">
+      <img src="port3.png" alt="This Website Screenshot" width="100%">
     `,
           "chicago-crime-ml": `
       <h2>Chicago Crime Data ML Analysis</h2>
@@ -850,69 +860,6 @@
           activeModals.forEach((modal) => closeModal(modal.id));
         }
       });
-
-      //remove?
-      const infoContentData = {
-        "ABOUT ME": {
-          title: "About Me",
-          content: `
-          <br>
-      <p>Hi! I'm Gage. I'm a freshly graduated developer with a passion for intuitive UI design, web development, 
-        and exploring new ideas.
-      </p>
-      <br>
-      <p>I was born in the rural western suburbs of Chicago. While spending my adolesence among corn and cattle did have its charms, a programming class I took early in high school sparked an interest in me that became a passion. That passion for problem solving is what drove me to move to the city and pursue a Computer Science degree. After four years of failure, growth, and enough caffeine to kill a small horse, I've made it out the other side with a degree in hand and a world in need of creative thinkers.</p>
-      <br>
-      <p>In my free time, I enjoy outdoor activities such as skiing, footall, and lacrosse. I am a dog lover, having three at the time of writing this. So even if you aren't interested in hiring me, feel free to send me pictures of your dog in any of the various contact methods.
-    `,
-          image: "headback.JPEG",
-        },
-        PROJECTS: {
-          title: "Projects",
-          content: "",
-          projects: [
-            "Interactive Map App",
-            "NFL Data Analysis",
-            "Short Film Reflection",
-            "Portfolio Website",
-            "Adventure App Prototype",
-          ],
-        },
-        SKILLS: {
-          title: "Skills",
-          content: `
-          <br>
-      <p>
-      ** hmmm, looks like you've found a section that I haven't quite finished yet -- shhhhhh.. I won't tell anyone if you don't
-      </p>
-      
-    `,
-          image: "dog.HEIC",
-        },
-        RESUME: {
-          title: "Resume",
-          content: `
-          <br>
-      <p>
-        View or download my full resume below:
-      </p>
-      <br>
-      <a href="resume.pdf" target="_blank" class="resume-link">View Resume</a>
-      <a href="resume.pdf" download="Gage_Resume" class="resume-link">Download Resume</a>
-    `,
-          image: "resume-GageBergmann.jpg",
-        },
-        CONNECT: {
-          title: "Connect",
-          content: `
-          <br>
-      <p>
-      ** hmmm, looks like you've found a section that I haven't quite finished yet -- shhhhhh.. I won't tell anyone if you don't
-      </p>
-      
-    `,
-        },
-      };
 
       function closeSplash() {
         const splash = document.getElementById("mobile-splash");
